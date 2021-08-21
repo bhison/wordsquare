@@ -88,7 +88,7 @@ function App() {
           </tbody>
         </table>
       </header>
-      <div className="nametag">By <a href="https://twitter.com/timbhison">@timbhison</a></div>
+      <div className="nametag"><a href="https://github.com/bhison/wordsquare" rel="noreferrer" target="_blank">View on Github<img src={window.location.origin + '/github.png'} alt="Github Icon"/></a></div>
     </div>
   );
 }
