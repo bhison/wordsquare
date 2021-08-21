@@ -74,9 +74,8 @@ table {
 
 .justCopied {
   color: #ffffff !important;
-  font-family: Courier monospace !important;
   background-color: #BBE;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 td {
@@ -115,4 +114,12 @@ td {
   border-right: 0 !important;
   color: #5656ff;
   border-right: dotted rgb(129, 152, 182) 2px !important;
+}
+
+.copyButton,
+.copyButton * {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
