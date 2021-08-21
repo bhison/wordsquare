@@ -42,7 +42,5 @@ export const convertString = (string:string):string => {
         convertedString = convertedString.replaceAll(upperLetter, replacement);
         console.log({"change": previousString===convertedString});
     })
-    convertedString = convertedString.replaceAll("\t", " ");
-    convertedString += "\nhttps://wordsquare.bhison.com"
     return convertedString;
 }

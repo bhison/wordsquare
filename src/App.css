@@ -16,9 +16,9 @@ h1 {
 
 table {
   margin:auto;
-  box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 19px 0 rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 19px 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 19px 0 rgba(0,0,0,0.75);
   background-color: #AAF;
 }
 
@@ -74,8 +74,9 @@ table {
 
 .justCopied {
   color: #ffffff !important;
-  font-family: Courier !important;
+  font-family: Courier monospace !important;
   background-color: #BBE;
+  font-size: 24px;
 }
 
 td {
@@ -107,4 +108,11 @@ td {
 
 .nametag > a:visited {
   color: #229;
+}
+
+.toggleButton {
+  border-radius: 0 !important;
+  border-right: 0 !important;
+  color: #5656ff;
+  border-right: dotted rgb(129, 152, 182) 2px !important;
 }

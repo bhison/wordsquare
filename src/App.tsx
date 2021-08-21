@@ -3,8 +3,10 @@ import {convertString} from "./SquareLookup";
 import './App.css';
 
 function App() {
-  const [charArray, setCharArray] = useState<string[]>([])
-  const [square, setSquare] = useState<JSX.Element[]>([])
+  const [charArray, setCharArray] = useState<string[]>([]);
+  const [square, setSquare] = useState<JSX.Element[]>([]);
+  const [squareTextMode, setSquareTextMode] = useState<boolean>(true);
+  const [spaceMode, setSpaceMode] = useState<boolean>(false);
   const [justCopied, setJustCopied] = useState<boolean>(false);
   const tableRef = createRef<HTMLTableElement>()
   const inputRef = createRef<HTMLInputElement>()
@@ -33,11 +35,11 @@ function App() {
 
   const copyTableToClipboard = () => {
     if(!tableRef.current) return;
-    // const square
     const text = tableRef.current.innerText;
-    const squaredText = convertString(text);
-    console.log({text:text, squaredText:squaredText});
-    navigator.clipboard.writeText(squaredText);
+    let copyString = squareTextMode ? convertString(text) : text;
+    copyString = spaceMode ? copyString.replaceAll("\t", " ") : copyString;
+    copyString += "\nhttps://wordsquare.bhison.com";
+    navigator.clipboard.writeText(copyString);
     setJustCopied(true);
   }
 
@@ -55,7 +57,7 @@ function App() {
     if(justCopied) {
       window.setTimeout(()=>{
         setJustCopied(false)
-      },3000);
+      },2000);
     }
   },[justCopied])
 
@@ -74,7 +76,12 @@ function App() {
             {
               justCopied
                       ? <div className="copyButton justCopied" onClick={copyTableToClipboard}>📄 COPIED TO CLIPBOARD</div>
-                      : <div className="copyButton" onClick={copyTableToClipboard}>📋</div>
+                      :
+                      <>
+                        <div className="copyButton toggleButton" onClick={()=>setSquareTextMode(!squareTextMode)}>{squareTextMode ? "🄰":"A"}</div>
+                        <div className="copyButton toggleButton" onClick={()=>setSpaceMode(!spaceMode)}>{spaceMode ? "‒":"⸺"}</div>
+                        <div className="copyButton" onClick={copyTableToClipboard}>📋</div>
+                      </>
             }
           </div>
         </div>
