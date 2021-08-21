@@ -43,6 +43,7 @@ function App() {
   useEffect(()=>{
     if(inputRef.current) inputRef.current.value = defaultText;
     setCharArray(defaultText.split(""));
+    // eslint-disable-next-line
   },[]);
 
   useEffect(()=>{
