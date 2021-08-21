@@ -63,9 +63,6 @@ function App() {
 
   return (
     <div className="main">
-      <div className="nametag">By <a href="https://twitter.com/timbhison">@timbhison</a></div>
-
-
       <header className="Word Square Creator">
         <div className="top">
           <h1>▣ Word Square Generator ▣</h1>
@@ -91,6 +88,7 @@ function App() {
           </tbody>
         </table>
       </header>
+      <div className="nametag">By <a href="https://twitter.com/timbhison">@timbhison</a></div>
     </div>
   );
 }
