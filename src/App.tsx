@@ -1,4 +1,5 @@
 import React, {createRef, useEffect, useState} from 'react';
+import {convertString} from "./SquareLookup";
 import './App.css';
 
 function App() {
@@ -22,17 +23,21 @@ function App() {
       const datas:JSX.Element[] = [];
       for(let y = 0; y < charArray.length; y++) {
         datas.push(
-                <td>{charArray[Math.abs((y-x)%charArray.length)]}</td>
+                <td key={"D"+x+y}>{charArray[Math.abs((y-x)%charArray.length)]}</td>
         )
       }
-      rows.push(<tr>{datas}</tr>)
+      rows.push(<tr key={"R" + x}>{datas}</tr>)
     }
     return rows;
   }
 
   const copyTableToClipboard = () => {
     if(!tableRef.current) return;
-    navigator.clipboard.writeText(tableRef.current.innerText);
+    // const square
+    const text = tableRef.current.innerText;
+    const squaredText = convertString(text);
+    console.log({text:text, squaredText:squaredText});
+    navigator.clipboard.writeText(squaredText);
     setJustCopied(true);
   }
 
@@ -74,7 +79,9 @@ function App() {
           </div>
         </div>
         <table ref={tableRef}>
-          {square}
+          <tbody>
+            {square}
+          </tbody>
         </table>
       </header>
     </div>
