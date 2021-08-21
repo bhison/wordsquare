@@ -30,7 +30,7 @@ function App() {
     return rows;
   }
 
-  const copyTableToClipboard = (e:React.MouseEvent) => {
+  const copyTableToClipboard = () => {
     if(!tableRef.current) return;
     navigator.clipboard.writeText(tableRef.current.innerText);
     setJustCopied(true);
